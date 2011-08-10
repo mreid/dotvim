@@ -147,7 +147,7 @@ colorscheme solarized
 "--- Taskpaper <https://github.com/davidoc/taskpaper.vim>
 "--- Markdown <https://github.com/hallison/vim-markdown>
 "--- NERDCommenter <https://github.com/scrooloose/nerdcommenter>
-
+"--- Repeat <https://github.com/tpope/vim-repeat>
 "--- NERDTree <https://github.com/vim-scripts/The-NERD-tree>
 " Ctrl-P to Display the file browser tree
 nmap <C-P> :NERDTreeToggle<CR>
