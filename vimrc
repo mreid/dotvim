@@ -143,9 +143,9 @@ set background=dark
 colorscheme solarized
 
 "--- SnipMate <https://github.com/msanders/snipmate.vim>
-
+"--- Surround <https://github.com/tpope/vim-surround>
+"--- Taskpaper <https://github.com/davidoc/taskpaper.vim>
 "--- Markdown <https://github.com/hallison/vim-markdown>
-
 "--- NERDCommenter <https://github.com/scrooloose/nerdcommenter>
 
 "--- NERDTree <https://github.com/vim-scripts/The-NERD-tree>
