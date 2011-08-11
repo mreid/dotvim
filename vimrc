@@ -17,10 +17,13 @@ if has("mouse")
   set mouse=a
 endif
 
+" Use , instead of \ for commands
+let mapleader = ","
+
 "===== Display =====
 
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
-set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%1*%f%*%{fugitive#statusline()}\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 
 " My custom settings
 " Set word wrap by default 
@@ -31,7 +34,6 @@ set lbr
 set autoindent
 set smartindent
 set smarttab
-set wrap
 set tabstop=4
 set shiftwidth=4
 
@@ -54,9 +56,7 @@ set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set ignorecase          " Do case insensitive matching
 set smartcase           " do not ignore if search pattern has CAPS
-set incsearch           " Incremental search
 set autowriteall        " Automatically save before commands like :next and :make
-set hlsearch            " Highlight search match
 set hidden              " enable multiple modified buffers
 set nobackup            " do not write backup files
 set foldcolumn=0        " columns for folding
@@ -67,8 +67,24 @@ set wildmenu
 set ruler
 set visualbell
 
-"fixdel
+" ===== Search ====
+" Make regular expression search user Perl regex
+nnoremap / /\v
+vnoremap / /\v
 
+" Better search highlighting (incremental)
+set incsearch
+set showmatch
+set hlsearch
+
+" Easy command to clear search
+nnoremap <leader><space> :noh<cr>
+
+" Tab instead of % to jump to matching bracket
+nnoremap <tab> %
+vnoremap <tab> %
+
+" ===== Misc =====
 " prevent vim from adding that stupid empty line at the end of every file
 set noeol
 set binary
@@ -81,11 +97,15 @@ hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 set backupdir=~/.backup,.
 set directory=~/.backup,~/tmp,.
 
+"===== Display =====
+set wrap
+set textwidth=79			" For wrapping
+set formatoptions=qrn1		
+if exists("&colorcolumn")
+	set colorcolumn=85 			" Show marker at column 85
+endif
 
 "===== Editing and Movement =====
-" Use , instead of \ for commands
-let mapleader = ","
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -94,6 +114,11 @@ nmap <silent> <C-N> :silent noh<CR>
 
 " Ctrl-E to switch between 2 last buffers
 nmap <C-E> :b#<CR>
+
+" Use relative numbering (Nj ad Nk) jumps up and down by N
+if exists("&relativenumber")
+	set relativenumber
+endif
 
 " Escape from insert mode using jj
 inoremap jj <ESC>
@@ -122,6 +147,15 @@ set tags=tags;/
 " ,o to make current window the only one (i.e., same as <C-W> o)
 nmap <Leader>o :only<CR>
 
+" Simpler window movement
+" From <http://stevelosh.com/blog/2010/09/coming-home-to-vim/#rainbow-parentheses>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Open a new vertical split and shift to that window
+nnoremap <leader>w <C-w>v<C-w>l
 "===== Custom Shortcuts =====
 ",V opens ~/.vimrc 
 nmap <Leader>V :e ~/.vimrc<CR>
@@ -130,7 +164,7 @@ nmap <Leader>V :e ~/.vimrc<CR>
 "===== Module Specific Settings =====
 "--- BufTabs <https://github.com/vim-scripts/buftabs>
 set laststatus=2
-let g:buftabs_in_statusline=1
+"let g:buftabs_in_statusline=1
 let g:buftabs_only_basename=1
 noremap <C-left> :bprev<CR>
 noremap <C-right> :bnext<CR>
@@ -143,6 +177,9 @@ set background=dark
 colorscheme solarized
 
 "--- SnipMate <https://github.com/msanders/snipmate.vim>
+"--- UltiSnips <https://github.com/vim-scripts/UltiSnips>
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
 "--- Surround <https://github.com/tpope/vim-surround>
 "--- Taskpaper <https://github.com/davidoc/taskpaper.vim>
 "--- Markdown <https://github.com/hallison/vim-markdown>
@@ -166,4 +203,3 @@ let NERDTreeIgnore=[ '\.ico$', '\.nav', '\.log', '\.snm', '\.fdb_latexmk', '\.au
 "--- UTL
 " Open the URL or file under the cursor using UTL
 nmap <Leader>u :Utl<CR>
-
