@@ -69,8 +69,8 @@ set visualbell
 
 " ===== Search ====
 " Make regular expression search user Perl regex
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Better search highlighting (incremental)
 set incsearch
