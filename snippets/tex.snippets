@@ -8,14 +8,19 @@ snippet \ "Display equation"
 \]
 endsnippet
 
-snippet fig "Figure with graphics"
+snippet fig "Figure with graphics" b
 \begin{figure}
 	\centering
-	\includegraphics[width=${2:0.8}\textwidth]{${1:file}}
-	\caption{${3:caption}
-		\label{${4:label}}
-		\end{figure}
-	}
+	\includegraphics[width=${2:0.9}\textwidth]{${1:file}}
+\end{figure}
+endsnippet
+
+snippet fig "Figure with graphics and caption" b
+\begin{figure}
+	\centering
+	\includegraphics[width=${2:0.9}\textwidth]{${1:file}}
+	\caption{${3:caption}}
+\end{figure}
 endsnippet
 
 snippet bf "Bold"
@@ -25,3 +30,8 @@ endsnippet
 snippet em "Emphasis"
 \emph{${1}}${2}
 endsnippet
+
+snippet tt "Typewriter Text" i
+\texttt{${1}}${2}
+endsnippet
+

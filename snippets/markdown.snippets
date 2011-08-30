@@ -1,0 +1,56 @@
+snippet [] "[link][]"
+[${1:link_id}][]${2}
+endsnippet
+
+snippet [[ "[link][id]"
+[${1:link}][${2:id}]${3}
+endsnippet
+
+snippet [( "[link](url)"
+[${1:link}](http://${2:url})${3}
+endsnippet
+
+snippet [@ "[link](email)"
+[${1:link}(mailto:${2:email})${3}
+endsnippet
+
+snippet $[("$ "[link](url title)"
+[${1:link}](${2:url} "${3:title}")${4}
+endsnippet
+
+snippet [: "[id]: url title"
+[${1:id}]: http://${2:url} "${3:title}"
+endsnippet
+
+snippet [:@ "[id]: email title"
+[${1:id}]: mailto:${2:url} "${3:title}"
+endsnippet
+
+snippet ![ "![alt][id]"
+![${1:alt}][${2:id}]${3}
+endsnippet
+
+snippet !( "![alt](url)"
+![${1:alt}](${2:url})${3}
+endsnippet
+
+snippet $!("$ "![alt](url title)"
+![${1:alt}](${2:url} "${3:title}")${4}
+endsnippet
+
+snippet * "*emphasis*" w
+*${1}*${2}
+endsnippet
+
+snippet _ "_emphasis_" w
+_${1}_${2}
+endsnippet
+
+snippet ** "**strong**" w
+**${1}**${2}
+endsnippet
+
+snippet __ "__strong__" w
+__${1}__${2}
+endsnippet
+

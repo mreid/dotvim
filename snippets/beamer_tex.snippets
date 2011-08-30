@@ -28,10 +28,25 @@ endsnippet
 
 snippet sec "Section with label (with borders)" b
 %==============================================================================
-\section{${1:section name}} % (fold)
+\subsection{${1:section name}} % (fold)
 \label{sec:{${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}}
 ${3}
 % (end) =======================================================================
+endsnippet
+
+snippet sub "Subsection with label (with borders)" b
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{${1:section name}} % (fold)
+\label{sec:{${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}}
+${3}
+% (end) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+endsnippet
+
+snippet sub "Subsection (with borders)" b
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{${1:section name}} % (fold)
+${3}
+% (end) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 endsnippet
 
 snippet \s "Structure" i

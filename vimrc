@@ -20,6 +20,9 @@ endif
 " Use , instead of \ for commands
 let mapleader = ","
 
+" Use <space> instead of :
+nnoremap <space> :
+
 "===== Display =====
 
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
@@ -168,7 +171,7 @@ set laststatus=2
 let g:buftabs_only_basename=1
 noremap <C-left> :bprev<CR>
 noremap <C-right> :bnext<CR>
-
+"--- Commentary - Simple commenting behaviour <https://github.com/tpope/vim-commentary.git>
 "--- Syntastic - Automatic syntax checking <https://github.com/vim-scripts/Syntastic>
 let g:syntastic_enable_signs=1
 
@@ -184,6 +187,8 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 "--- Taskpaper <https://github.com/davidoc/taskpaper.vim>
 "--- Markdown <https://github.com/hallison/vim-markdown>
 "--- NERDCommenter <https://github.com/scrooloose/nerdcommenter>
+"--- Pandoc <https://github.com/wunki/vim-pandoc>
+"    (Consider trying <https://github.com/vim-pandoc/vim-pandoc>)
 "--- Repeat <https://github.com/tpope/vim-repeat>
 "--- NERDTree <https://github.com/vim-scripts/The-NERD-tree>
 " Ctrl-P to Display the file browser tree
